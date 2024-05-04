@@ -1,0 +1,33 @@
+{
+    "recommendations": [
+        "mgmcdermott.vscode-language-babel",
+        "hansuxdev.bootstrap5-snippets",
+        "anbuselvanrocky.bootstrap5-vscode",
+        "jakewilson.vscode-cdnjs",
+        "naumovs.color-highlight",
+        "phoenisx.cssvar",
+        "dbaeumer.vscode-eslint",
+        "vincaslt.highlight-matching-tag",
+        "ecmel.vscode-html-css",
+        "throvn.js-html-template-strings",
+        "jehankandy.html-table-creator",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "visualstudioexptteam.vscodeintellicode-completions",
+        "visualstudioexptteam.vscodeintellicode-insiders",
+        "zignd.html-css-class-completion",
+        "xabikos.javascriptsnippets",
+        "eriklynd.json-tools",
+        "ms-vscode.live-server",
+        "ritwickdey.liveserver",
+        "ms-edgedevtools.vscode-edge-devtools",
+        "leizongmin.node-module-intellisense",
+        "mukundan.nodejs-docs",
+        "abdoseadaa.node-js-snippet",
+        "idered.npm",
+        "dennisvhest.npm-browser",
+        "christian-kohler.npm-intellisense",
+        "imbhargav5.npm-ui",
+        "trabpukcip.vscode-npm-scripts"
+    ]
+}
