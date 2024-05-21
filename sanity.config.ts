@@ -1,18 +1,28 @@
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes'
+import { defineConfig } from "sanity";
+import { structureTool } from "sanity/structure";
+import { visionTool } from "@sanity/vision";
+import { schemaTypes } from "./schemaTypes";
+//get config from .env file
+const {
+  BASE_URL,
+  NEXT_PUBLIC_SANITY_API_VERSION,
+  NEXT_PUBLIC_SANITY_PROJECT_ID,
+  NEXT_PUBLIC_SANITY_DATASET,
+} = process.env;
 
+// define and export sanity config
 export default defineConfig({
-  name: 'default',
-  title: 'PJElec',
-basePath: '/studio',
-version: '03-24-2024',
-    projectId: 'yniboxuh',
-    dataset: 'production',
-    plugins: [structureTool(), visionTool()],
-    
+  name: "default",
+  title: "PJElec",
+  basePath: BASE_URL || "/studio",
+  version: NEXT_PUBLIC_SANITY_API_VERSION || "2023-05-01",
+  projectId:
+    NEXT_PUBLIC_SANITY_PROJECT_ID || "your-default-project-id",
+  dataset: NEXT_PUBLIC_SANITY_DATASET || "production",
+
+  plugins: [structureTool(), visionTool()],
+
   schema: {
     types: schemaTypes,
   },
-})
+});
