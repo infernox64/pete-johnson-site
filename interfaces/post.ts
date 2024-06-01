@@ -1,28 +1,37 @@
 // interfaces/post.ts
-import { PortableText } from '@portabletext/react';
-
-interface SanityImage {
-  _type: 'image';
-  asset: {
-    _ref: string;
-    _type: 'reference';
-  };
-}
-
 interface AdditionalImage {
-  image: SanityImage;
-  caption?: string;
-}
-
-export interface Post {
-  _id: string;
-  _type: 'post';
-  title: string;
-  slug: {
-    _type: 'slug';
-    current: string;
-  };
-  body: any;
-  mainImage?: SanityImage;
-  additionalImages?: AdditionalImage[];
-}
+    image: {
+      asset: {
+        _ref: string;
+      };
+      caption?: string;
+    };
+  }
+  
+  export interface Post {
+    _id: string;
+    title: string;
+    slug: {
+      current: string;
+    };
+    body: {
+      _key: string;
+      _type: 'block';
+      children: [
+        {
+          _key: string;
+          _type: 'span';
+          text: string;
+        }
+      ];
+      markDefs: [];
+      style: 'normal';
+    }[];
+    mainImage: {
+      asset: {
+        _ref: string;
+      };
+    };
+    additionalImages?: AdditionalImage[];
+  }
+  

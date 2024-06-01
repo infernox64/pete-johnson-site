@@ -55,7 +55,7 @@ const profile = {
     },
     {
       name: "fullBio",
-      title: "Full Bio",
+      title: "Full description",
       type: "array",
       of: [{ type: "block" }],
     },

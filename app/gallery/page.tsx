@@ -21,7 +21,7 @@ export default async function GalleriesPage() {
           <div>
             {gallery.images.map((image, index) => (
               <div key={index}>
-                <Image src={image.image.asset.url} alt={image.caption} />
+                <Image src={image.image.asset.url} alt="" />
                 {image.caption && <p>{image.caption}</p>}
               </div>
             ))}
