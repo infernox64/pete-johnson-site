@@ -1,36 +1,68 @@
 // schemas/post.ts
-import { defineField, defineType } from "sanity";
+import { defineField, defineType, Rule } from 'sanity';
 
-export default defineType({
-  name: "post",
-  title: "Post",
-  type: "document",
+const additionalImage = defineType({
+  name: 'additionalImage',
+  title: 'Additional Image',
+  type: 'object',
   fields: [
     defineField({
-      name: "title",
-      title: "Title",
-      type: "string",
-      validation: (Rule) => Rule.required(),
-    }),
-
-    defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
+      name: 'image',
+      title: 'Image',
+      type: 'image',
       options: {
-        source: "title",
-        maxLength: 96,
-        isUnique: true, // Enforce unique slugs
-        slugify: (input) => input.toLowerCase().replace(/\s+/g, "-"), // Custom slugify function
+        hotspot: true,
       },
     }),
-
     defineField({
-      name: "body",
-      title: "Body",
-      type: "array",
-      of: [{ type: "block" }],
-      description: "The main content of the post.",
+      name: 'caption',
+      title: 'Caption',
+      type: 'string',
+    }),
+  ],
+});
+
+export default defineType({
+  name: 'post',
+  title: 'Post',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'array',
+      of: [{ type: 'block' }], // Array of blocks for the body field
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: 'mainImage',
+      title: 'Main Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'additionalImages',
+      title: 'Additional Images',
+      type: 'array',
+      of: [{ type: 'additionalImage' }], // Reference the additionalImage type
     }),
   ],
 });
