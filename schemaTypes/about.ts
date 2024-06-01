@@ -1,6 +1,7 @@
 import { defineField } from "sanity";
 import { TiBusinessCard } from "react-icons/ti";
-import { MdEmail } from "react-icons/md";
+import { MdEmail} from "react-icons/md";
+import { FaFacebook,FaTwitter} from "react-icons/fa";
 
 const profile = {
   name: "aboutPage",
@@ -67,12 +68,14 @@ const profile = {
         {
           name: "twitter",
           title: "Twitter URL",
+          icon: FaTwitter,
           type: "url",
           initialValue: "https://twitter.com/",
         },
         {
           name: "FacebookURL",
           title: "Facebook URL",
+          icon: FaFacebook,
           type: "url",
           initialValue: "https://facebook.com/",
         },
@@ -85,9 +88,9 @@ const profile = {
     },
     {
       name: "skills",
-      title: "Skills",
+      title: "specialties",
       type: "array",
-      description: "Add a list of skills",
+      description: "Add a list of skills you specialize in",
       of: [{ type: "string" }],
     },
   ],

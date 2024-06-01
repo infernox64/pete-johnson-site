@@ -1,9 +1,9 @@
 // app/about/page.tsx
-import client from "../../sanity.client";
+import client from "@/sanity/sanity.client";
 import { aboutPageQuery } from "../../queries";
 import { AboutPage } from "../../interfaces/aboutPage";
 import { PortableText } from "@portabletext/react";
-import {Image } from '@next/Image';
+import Image from 'next/image';
 
 async function getAboutPage() {
   const aboutPage: AboutPage = await client.fetch(aboutPageQuery);
@@ -23,7 +23,7 @@ export default async function AboutPage() {
       <h2>{aboutPage.fullName}</h2>
       <p>{aboutPage.headline}</p>
       {aboutPage.businessImage && (
-        <img
+        <Image
           src={aboutPage.businessImage.asset.url}
           alt={aboutPage.businessImage.alt}
         />
